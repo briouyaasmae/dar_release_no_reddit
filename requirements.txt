@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+scikit-learn
+lightgbm
+torch
+transformers
+sentence-transformers
+faiss-cpu
+rank-bm25
+tqdm
+pyarrow
+matplotlib
+seaborn

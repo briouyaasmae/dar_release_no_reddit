@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-24T15:00:44.279147Z",
+  "python": "3.12.13",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0",
+    "sentence_transformers": "5.4.0",
+    "lightgbm": "4.6.0",
+    "pyarrow": "24.0.0"
+  }
+}

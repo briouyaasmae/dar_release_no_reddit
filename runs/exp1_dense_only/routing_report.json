@@ -1,0 +1,423 @@
+{
+  "position_statement": "We study query performance prediction and adaptive routing in domain-specific information retrieval, using mental health as a challenging test case. Our focus is on predicting retrieval difficulty and optimizing cost-quality tradeoffs, not on clinical outcomes or therapeutic effectiveness.",
+  "contributions": {
+    "qpp": "Dual-predictor architecture with post-retrieval dispersion and complementarity features",
+    "safety": "Integrates risk detection into routing decisions with crisis fallback",
+    "calibration": "Global isotonic calibration for multi-tier retrieval systems",
+    "dense_model_comparison": {},
+    "efficiency": "Pareto-optimal threshold selection via grid search"
+  },
+  "retrieval": {
+    "sparse": {
+      "mean_ndcg@10": 0.2989969091734711,
+      "mean_ndcg@10_ci_low": 0.27623797815963985,
+      "mean_ndcg@10_ci_high": 0.3227716702581053,
+      "precision@10": 0.09242262540021345,
+      "recall@10": 0.2744083276148254,
+      "zero_rate": 0.5208110992529349
+    },
+    "dense": {
+      "mean_ndcg@10": 0.7089754220460828,
+      "mean_ndcg@10_ci_low": 0.6878472225141311,
+      "mean_ndcg@10_ci_high": 0.7282105284314366,
+      "precision@10": 0.224119530416222,
+      "recall@10": 0.7408967083053436,
+      "zero_rate": 0.1056563500533618
+    },
+    "hybrid": {
+      "mean_ndcg@10": 0.7089754220460828,
+      "mean_ndcg@10_ci_low": 0.6878472225141311,
+      "mean_ndcg@10_ci_high": 0.7282105284314366,
+      "precision@10": 0.224119530416222,
+      "recall@10": 0.7408967083053436,
+      "zero_rate": 0.1056563500533618
+    },
+    "hybrid_verified": {
+      "mean_ndcg@10": 0.46425060902881643,
+      "mean_ndcg@10_ci_low": 0.43925295465633357,
+      "mean_ndcg@10_ci_high": 0.48807506114794047,
+      "precision@10": 0.15474919957310565,
+      "recall@10": 0.5055267718688449,
+      "zero_rate": 0.2902881536819637
+    }
+  },
+  "predictor": {
+    "hybrid": {
+      "rmse_raw": 0.283548106192233,
+      "mae_raw": 0.21591956012412222,
+      "rmse_cal": 0.2733870158853613,
+      "mae_cal": 0.21242297251752956,
+      "pearson_raw": 0.5432812382219464,
+      "pearson_cal": 0.5717108891960513,
+      "spearman_raw": 0.5277039632078738,
+      "spearman_cal": 0.5425079441709207,
+      "pearson_raw_ci_low": 0.4975178752885137,
+      "pearson_raw_ci_high": 0.5906152906614609,
+      "pearson_cal_ci_low": 0.5258337699440223,
+      "pearson_cal_ci_high": 0.6171452956850454,
+      "spearman_raw_ci_low": 0.4676960050335304,
+      "spearman_raw_ci_high": 0.5645669332830845,
+      "spearman_cal_ci_low": 0.4804921205365622,
+      "spearman_cal_ci_high": 0.5769470249640769
+    },
+    "sparse": {
+      "rmse_raw": 0.2027389351349537,
+      "mae_raw": 0.13947527262396672,
+      "rmse_cal": 0.19602105201390485,
+      "mae_cal": 0.13180676382169332,
+      "pearson_raw": 0.8298466235786797,
+      "pearson_cal": 0.8415055128215005,
+      "spearman_raw": 0.7315375810732541,
+      "spearman_cal": 0.7466482953429228,
+      "pearson_raw_ci_low": 0.8040981731653541,
+      "pearson_raw_ci_high": 0.8534675695525737,
+      "pearson_cal_ci_low": 0.8160881252730147,
+      "pearson_cal_ci_high": 0.8639947174501528,
+      "spearman_raw_ci_low": 0.6868389334188011,
+      "spearman_raw_ci_high": 0.755776350634504,
+      "spearman_cal_ci_low": 0.6932691264729051,
+      "spearman_cal_ci_high": 0.7871975410193804
+    }
+  },
+  "routing": {
+    "single": {
+      "avg_cost": 5.538543897216274,
+      "avg_ndcg@10_auto": 0.7081272743600233,
+      "avg_ndcg@10_overall": 0.7058600578999591,
+      "efficiency": 0.12785441218872254,
+      "avg_cost_overall": 5.5224119530416225,
+      "efficiency_overall": 0.1278173493578629,
+      "auto_ratio": 0.9967982924226254,
+      "crisis_ratio": 0.0032017075773745998,
+      "human_review_ratio": 0.0
+    },
+    "dual": {
+      "avg_cost": 4.989293361884369,
+      "avg_ndcg@10_auto": 0.718138060939749,
+      "avg_ndcg@10_overall": 0.7158387928684371,
+      "efficiency": 0.14393582594800977,
+      "avg_cost_overall": 4.974919957310566,
+      "efficiency_overall": 0.1438895095822644,
+      "auto_ratio": 0.9967982924226254,
+      "crisis_ratio": 0.0032017075773745998,
+      "human_review_ratio": 0.0
+    },
+    "always_sparse": {
+      "avg_cost": 1.0,
+      "avg_ndcg@10": 0.2989969091734711,
+      "avg_ndcg@10_ci_low": 0.27623797815963985,
+      "avg_ndcg@10_ci_high": 0.3227716702581053,
+      "efficiency": 0.2989969091734711,
+      "auto_ratio": 1.0
+    },
+    "always_hybrid": {
+      "avg_cost": 4.0,
+      "avg_ndcg@10": 0.7089754220460828,
+      "avg_ndcg@10_ci_low": 0.6878472225141311,
+      "avg_ndcg@10_ci_high": 0.7282105284314366,
+      "efficiency": 0.1772438555115207,
+      "auto_ratio": 1.0
+    },
+    "always_hybrid_verified": {
+      "avg_cost": 10.0,
+      "avg_ndcg@10": 0.46425060902881643,
+      "avg_ndcg@10_ci_low": 0.43925295465633357,
+      "avg_ndcg@10_ci_high": 0.48807506114794047,
+      "efficiency": 0.04642506090288164,
+      "auto_ratio": 1.0
+    }
+  },
+  "crisis": {
+    "enabled": true,
+    "user_country": "US",
+    "crisis_outputs_json": "paper_experiments/runs/exp1_dense_only/crisis_fallbacks.json",
+    "crisis_docs_count": 60
+  },
+  "routing_sweep": {},
+  "baselines": {
+    "SCQ": {
+      "pearson": 0.10603715857698427,
+      "pearson_ci_low": 0.04311545359967442,
+      "pearson_ci_high": 0.16523606641963945,
+      "spearman": 0.13003175801245223,
+      "spearman_ci_low": 0.07333352631800362,
+      "spearman_ci_high": 0.19917656810765977
+    },
+    "Clarity": {
+      "pearson": 0.11200147318257116,
+      "pearson_ci_low": 0.05019693199689604,
+      "pearson_ci_high": 0.1695673249950042,
+      "spearman": 0.1279237031678135,
+      "spearman_ci_low": 0.05935150615855948,
+      "spearman_ci_high": 0.18613398835218634
+    },
+    "WIG": {
+      "pearson": -0.041886304103016435,
+      "pearson_ci_low": -0.11238454736442104,
+      "pearson_ci_high": 0.02561676053166752,
+      "spearman": -0.00919671874131168,
+      "spearman_ci_low": -0.07522942201397578,
+      "spearman_ci_high": 0.05282281871746502
+    },
+    "NQC": {
+      "pearson": 0.23023788100661294,
+      "pearson_ci_low": 0.18567593648855163,
+      "pearson_ci_high": 0.27043247810200255,
+      "spearman": 0.19020757273596603,
+      "spearman_ci_low": 0.1308021242258806,
+      "spearman_ci_high": 0.2596628120932626
+    },
+    "NQC_2012": {
+      "pearson": 0.23023788100813733,
+      "pearson_ci_low": 0.18567593649113076,
+      "pearson_ci_high": 0.27043247810366716,
+      "spearman": 0.19020757273596603,
+      "spearman_ci_low": 0.1308021242258806,
+      "spearman_ci_high": 0.2596628120932626
+    },
+    "SMV_2006": {
+      "pearson": 0.05918810436102507,
+      "pearson_ci_low": -0.007949824464859544,
+      "pearson_ci_high": 0.11767612506753335,
+      "spearman": 0.0892032034930138,
+      "spearman_ci_low": 0.020178451597198315,
+      "spearman_ci_high": 0.1486679991652793
+    },
+    "RSD_2012": {
+      "pearson": -0.17418298891067027,
+      "pearson_ci_low": -0.2166592950437852,
+      "pearson_ci_high": -0.1367868056311471,
+      "spearman": -0.17081254043853006,
+      "spearman_ci_low": -0.24030928098142065,
+      "spearman_ci_high": -0.11726572871740847
+    },
+    "QF_2007": {
+      "pearson": 0.21123943748163115,
+      "pearson_ci_low": 0.1645750408027204,
+      "pearson_ci_high": 0.2571225571282481,
+      "spearman": 0.17840634863843266,
+      "spearman_ci_low": 0.12127914177922942,
+      "spearman_ci_high": 0.24638700095520852
+    },
+    "AutoCorr_2010": {
+      "pearson": -0.1847043226861448,
+      "pearson_ci_low": -0.22919139442197012,
+      "pearson_ci_high": -0.13915623312581313,
+      "spearman": -0.14713728903187165,
+      "spearman_ci_low": -0.2091063824421118,
+      "spearman_ci_high": -0.08694320130031119
+    },
+    "NQCDIST_NQC_2017": {
+      "pearson": 0.23023788100813733,
+      "pearson_ci_low": 0.18567593649113076,
+      "pearson_ci_high": 0.27043247810366716,
+      "spearman": 0.19020757273596603,
+      "spearman_ci_low": 0.1308021242258806,
+      "spearman_ci_high": 0.2596628120932626
+    },
+    "NQCDIST_Skew_2017": {
+      "pearson": 0.11309640137130335,
+      "pearson_ci_low": 0.05362863378193834,
+      "pearson_ci_high": 0.174974960108305,
+      "spearman": 0.09666323524460801,
+      "spearman_ci_low": 0.02997192765925145,
+      "spearman_ci_high": 0.15952349627015922
+    },
+    "NQCDIST_Kurt_2017": {
+      "pearson": 0.1041755399025808,
+      "pearson_ci_low": 0.04910495824008733,
+      "pearson_ci_high": 0.16316565409613643,
+      "spearman": 0.0740519522317576,
+      "spearman_ci_low": 0.009801867175551053,
+      "spearman_ci_high": 0.13810523632030428
+    },
+    "NQCDIST_Gini_2017": {
+      "pearson": 0.23350216262831497,
+      "pearson_ci_low": 0.18695562258608484,
+      "pearson_ci_high": 0.27665876601309725,
+      "spearman": 0.18958242201683484,
+      "spearman_ci_low": 0.12933865641359393,
+      "spearman_ci_high": 0.2569065431839011
+    },
+    "NQC_Dense_2024": {
+      "pearson": 0.4749999462122328,
+      "pearson_ci_low": 0.44232445008218624,
+      "pearson_ci_high": 0.5070042640125947,
+      "spearman": 0.5513074033120546,
+      "spearman_ci_low": 0.4964511242327074,
+      "spearman_ci_high": 0.5898007857028789
+    },
+    "Complementarity_Ours": {
+      "pearson": -0.14308473529972937,
+      "pearson_ci_low": -0.19659087195970185,
+      "pearson_ci_high": -0.09123324285753234,
+      "spearman": -0.08770638346611206,
+      "spearman_ci_low": -0.1647974919811442,
+      "spearman_ci_high": -0.03864653352270631
+    }
+  },
+  "ablations": {
+    "Full System (Dual + Safety + Verified)": {
+      "avg_cost": 4.989293361884369,
+      "avg_ndcg@10_auto": 0.718138060939749,
+      "avg_ndcg@10_overall": 0.7158387928684371,
+      "efficiency": 0.14393582594800977,
+      "avg_cost_overall": 4.974919957310566,
+      "efficiency_overall": 0.1438895095822644,
+      "auto_ratio": 0.9967982924226254,
+      "crisis_ratio": 0.0032017075773745998,
+      "human_review_ratio": 0.0
+    },
+    "- Dual Predictor (Single)": {
+      "avg_cost": 5.538543897216274,
+      "avg_ndcg@10_auto": 0.7081272743600233,
+      "avg_ndcg@10_overall": 0.7058600578999591,
+      "efficiency": 0.12785441218872254,
+      "avg_cost_overall": 5.5224119530416225,
+      "efficiency_overall": 0.1278173493578629,
+      "auto_ratio": 0.9967982924226254,
+      "crisis_ratio": 0.0032017075773745998,
+      "human_review_ratio": 0.0
+    },
+    "- Safety Override": {
+      "avg_cost": 5.010905125408942,
+      "avg_ndcg@10_auto": 0.7152049598166019,
+      "avg_ndcg@10_overall": 0.6999391122217972,
+      "efficiency": 0.1427296949187865,
+      "avg_cost_overall": 4.91462113127001,
+      "efficiency_overall": 0.14241974987010292,
+      "auto_ratio": 0.9786552828175027,
+      "crisis_ratio": 0.021344717182497332,
+      "human_review_ratio": 0.0
+    },
+    "- Emotion Features (retrained)": {
+      "avg_cost": 4.931696905016008,
+      "avg_ndcg@10_auto": 0.6983512267639819,
+      "avg_ndcg@10_overall": 0.6983512267639819,
+      "efficiency": 0.1416046525595869,
+      "avg_cost_overall": 4.931696905016008,
+      "efficiency_overall": 0.1416046525595869,
+      "auto_ratio": 1.0,
+      "crisis_ratio": 0.0,
+      "human_review_ratio": 0.0
+    },
+    "Sparse Only": {
+      "avg_cost": 1.0,
+      "avg_ndcg@10_auto": 0.2989969091734711,
+      "avg_ndcg@10_overall": null,
+      "efficiency": 0.2989969091734711
+    }
+  },
+  "analysis": {
+    "counterfactual": {
+      "mean_regret": 0.04347119647694872,
+      "max_regret": 0.5087403079104241
+    },
+    "failures": {
+      "Ambiguous": [
+        189,
+        828,
+        876
+      ],
+      "Out_of_domain": [
+        387
+      ],
+      "Highly_specific": [],
+      "Implicit_risk": [],
+      "Negation_confusion": [
+        55,
+        64,
+        76,
+        871
+      ]
+    },
+    "adversarial_one": {
+      "consistent": true,
+      "perturbations": [
+        "How do I stop feeling empty? I don't know how else to explain it. All I can say is that I feel empty, I feel nothing. How do I stop feeling this way?",
+        "How do I am stop feeling empty? I am don't know how else to explain it. All I am can say is that I am feel empty, I am feel nothing. How do I am stop feeling this way?",
+        "How do I stop feeling empty? I don't know how else to explain it. All I can say is that I feel very empty, I feel very nothing. How do I stop feeling this way?",
+        "How do i stop feeling empty? i don't know how else to explain it. all i can say is that i feel empty, i feel nothing. how do i stop feeling this way?"
+      ],
+      "routes": [
+        "hybrid",
+        "hybrid",
+        "hybrid",
+        "hybrid"
+      ]
+    },
+    "cost_sensitivity_csv": "paper_experiments/runs/exp1_dense_only/cost_sensitivity.csv"
+  },
+  "transfer": {
+    "healthtap": {
+      "status": "skipped (csv not found)"
+    },
+    "legaladvice": {
+      "status": "skipped (csv not found)"
+    },
+    "stackoverflow": {
+      "status": "skipped (csv not found)"
+    }
+  },
+  "chunk_ablation": {},
+  "config": {
+    "workdir": "paper_experiments/runs/exp1_dense_only",
+    "device": "auto",
+    "seed": 42,
+    "chunk_mode": "overlap",
+    "max_docs": 200000,
+    "min_chunk_words": 150,
+    "max_chunk_words": 360,
+    "overlap_size": 120,
+    "overlap_chunk_words": 240,
+    "topk_bm25": 200,
+    "topk_dense": 400,
+    "topk_fusion": 400,
+    "eval_k": 10,
+    "rrf_k": 90,
+    "use_verified": true,
+    "verified_topn": 120,
+    "verified_max_len": 384,
+    "cost_sparse": 1.0,
+    "cost_hybrid": 4.0,
+    "cost_verified": 10.0,
+    "thr_sparse": 0.55,
+    "thr_hybrid": 0.6,
+    "safety_override_thr": 0.55,
+    "high_risk_prob_thr": 0.3,
+    "dual_delta": 0.03,
+    "kfolds": 5,
+    "limit_queries": 0,
+    "sweep": false,
+    "run_baselines": true,
+    "run_ablations": true,
+    "run_sims": true,
+    "run_transfer": true,
+    "run_chunk_ablation": false,
+    "qpp_post_k": 80,
+    "enable_crisis_tier": true,
+    "cost_crisis": 0.5,
+    "crisis_topk": 8,
+    "crisis_resources_path": null,
+    "user_country": "US",
+    "hybrid_mode": "dense_only",
+    "verified_source": "dense",
+    "rrf_w_bm25": 1.0,
+    "rrf_w_dense": 1.0
+  },
+  "version_info": {
+    "python": "3.12.13",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "lightgbm": "4.6.0",
+    "transformers": "5.0.0",
+    "sentence_transformers": "5.4.0",
+    "faiss": "1.14.3",
+    "rank_bm25": "unknown",
+    "torch": "2.10.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "device_used": "cuda",
+    "seed": 42
+  }
+}

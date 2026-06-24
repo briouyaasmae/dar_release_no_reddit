@@ -1,0 +1,14 @@
+\begin{tabular}{lrrrrrrrlrrr}
+\toprule
+experiment & sparse_ndcg & dense_ndcg & hybrid_ndcg & hybrid_verified_ndcg & dar_dual_ndcg_overall & dar_dual_cost & dar_dual_efficiency & paired_best_baseline & paired_mean_delta & paired_bootstrap_p & paired_wilcoxon_p \\
+\midrule
+exp1_dense_only & 0.2990 & 0.7090 & 0.7090 & 0.4643 & 0.7158 & 4.9749 & 0.1439 & always_hybrid & 0.0069 & 0.2272 & 0.5388 \\
+exp2_rrf_equal & 0.2990 & 0.7090 & 0.4756 & 0.4744 & 0.5659 & 7.2866 & 0.0777 & always_hybrid & 0.0903 & 0.0000 & 0.0000 \\
+exp3_rrf_downweight & 0.3096 & 0.7090 & 0.6410 & 0.4622 & 0.6357 & 5.7689 & 0.1102 & always_hybrid & -0.0052 & 0.4440 & 0.1633 \\
+exp4_sentence_chunks & 0.3149 & 0.3964 & 0.4113 & 0.5377 & 0.5673 & 6.8335 & 0.0830 & always_verified & 0.0296 & 0.0000 & 0.0002 \\
+exp4_sentence_chunks_mpnet & 0.3149 & 0.7347 & 0.5147 & 0.5292 & 0.6224 & 6.2070 & 0.1003 & always_verified & 0.0932 & 0.0000 & 0.0000 \\
+dense_comparison_tier3 & 0.3169 & 0.4022 & 0.4126 & 0.5383 & 0.5687 & 6.6644 & 0.0853 & always_verified & 0.0332 & 0.0000 & 0.0001 \\
+medpsych_sentence_chunks & 0.5456 & 0.6256 & 0.6250 & 0.6990 & 0.7432 & 5.5030 & 0.1351 & always_verified & 0.0442 & 0.0000 & 0.0000 \\
+nfcorpus_sentence_chunks & 0.4303 & 0.4115 & 0.4345 & 0.5029 & 0.5201 & 6.1827 & 0.0841 & always_verified & 0.0172 & 0.0022 & 0.0043 \\
+\bottomrule
+\end{tabular}

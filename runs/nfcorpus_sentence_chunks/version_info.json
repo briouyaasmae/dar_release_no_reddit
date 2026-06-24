@@ -1,0 +1,15 @@
+{
+  "python": "3.12.13",
+  "numpy": "2.4.6",
+  "pandas": "2.3.3",
+  "lightgbm": "4.6.0",
+  "transformers": "5.0.0",
+  "sentence_transformers": "5.4.0",
+  "faiss": "1.14.3",
+  "rank_bm25": "unknown",
+  "torch": "2.10.0+cu128",
+  "cuda_available": true,
+  "cuda_version": "12.8",
+  "device_used": "cuda",
+  "seed": 42
+}

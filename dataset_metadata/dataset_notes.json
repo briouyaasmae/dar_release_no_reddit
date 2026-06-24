@@ -1,0 +1,16 @@
+{
+  "note": "Large raw datasets are not copied into this GitHub release folder. The code expects datasets under paper_experiments/data/ or downloads/constructs them as described in the README.",
+  "available_local_data_dirs": [
+    "paper_experiments/data/nfcorpus",
+    "paper_experiments/data/reddit_mental_health",
+    "paper_experiments/data/medpsych_online"
+  ],
+  "excluded_large_files": [
+    "combined-data.csv",
+    "counselchat.csv",
+    "paper_experiments/data/*/corpus.jsonl",
+    "paper_experiments/data/*/queries.jsonl",
+    "paper_experiments/data/*/qrels.jsonl",
+    "paper_experiments/data/reddit_mental_health/*.parquet"
+  ]
+}

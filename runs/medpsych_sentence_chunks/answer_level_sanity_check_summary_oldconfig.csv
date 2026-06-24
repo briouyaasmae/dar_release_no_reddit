@@ -1,0 +1,4 @@
+method,answer_relevance_tokenF1,evidence_supported_sentence_rate,unsupported_sentence_rate,answer_length_words,fallback
+always_hybrid,0.591368912665283,1.0,0.0,180.0,0.0
+always_verified,0.6279998894048867,1.0,0.0,179.49666666666667,0.0
+dar,0.6512042919337734,1.0,0.0,179.604,0.0

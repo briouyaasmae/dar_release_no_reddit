@@ -1,0 +1,10 @@
+experiment,status,workdir,resolved_from_runs,mismatches
+exp1_dense_only,ok,paper_experiments/runs/exp1_dense_only,False,
+exp2_rrf_equal,ok,paper_experiments/runs/exp2_rrf_equal,False,
+exp3_rrf_downweight,ok,paper_experiments/runs/exp3_rrf_downweight,False,
+exp4_sentence_chunks,ok,paper_experiments/runs/exp4_sentence_chunks,False,
+exp4_sentence_chunks_mpnet,ok,paper_experiments/runs/exp4_sentence_chunks_mpnet,False,
+dense_comparison_tier3,ok,paper_experiments/runs/dense_comparison_tier3,True,
+medpsych_sentence_chunks,ok,paper_experiments/runs/medpsych_sentence_chunks,False,
+nfcorpus_sentence_chunks,ok,paper_experiments/runs/nfcorpus_sentence_chunks,False,
+reddit_transfer,missing_report,paper_experiments/runs/reddit_transfer,False,
